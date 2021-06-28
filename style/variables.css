@@ -25,27 +25,29 @@ all of MD as it is not optimized for dense, information rich UIs.
 */
 
 :root {
-    
-    /* Create the solarized dark palette.
-     *   The bases run in increasing brightness. */
 
---solarized-base03: #002b36;
---solarized-base02: #073642;
---solarized-base01: #586e75;
---solarized-base00: #657b83;
+  /* Create the solarized dark palette.
+  *
+  * The bases run in increasing brightness. 
+  */
 
---solarized-base0: #839496;
---solarized-base1: #93a1a1;
---solarized-base2: #eee8d5;
---solarized-base3: #fdf6e3;
+    --solarized-base03: #002b36;
+    --solarized-base02: #073642;
+    --solarized-base01: #586e75;
+    --solarized-base00: #657b83;
 
---solarized-orange: #cb4b16;
---solarized-red: #dc322f;
---solarized-magenta: #d33682;
---solarized-violet: #6c71c4;
---solarized-blue: #268bd2;
---solarized-cyan: #2aa198;
---solarized-green: #859900;
+    --solarized-base0: #839496;
+    --solarized-base1: #93a1a1;
+    --solarized-base2: #eee8d5;
+    --solarized-base3: #fdf6e3;
+
+    --solarized-orange: #cb4b16;
+    --solarized-red: #dc322f;
+    --solarized-magenta: #d33682;
+    --solarized-violet: #6c71c4;
+    --solarized-blue: #268bd2;
+    --solarized-cyan: #2aa198;
+    --solarized-green: #859900;
 
   /* Elevation
    *
@@ -108,7 +110,6 @@ all of MD as it is not optimized for dense, information rich UIs.
    * The following variables, specify the visual styling of borders in JupyterLab.
    */
 
-  --jp-border-width: 1px;
   --jp-border-width: 1px;
   --jp-border-color0: var(--md-grey-400);
   --jp-border-color1: var(--md-grey-400);
@@ -232,43 +233,43 @@ all of MD as it is not optimized for dense, information rich UIs.
    * theme these would go from dark to light.
    */
 
-  --jp-inverse-layout-color0: var(--solarized-base03);
-  --jp-inverse-layout-color1: var(--solarized-base02);
+  --jp-inverse-layout-color0: #111111;
+  --jp-inverse-layout-color1: var(--md-grey-900);
   --jp-inverse-layout-color2: var(--md-grey-800);
   --jp-inverse-layout-color3: var(--md-grey-700);
   --jp-inverse-layout-color4: var(--md-grey-600);
 
   /* Brand/accent */
 
-  --jp-brand-color0: var(--solarized-blue);
-  --jp-brand-color1: var(--solarized-blue);
+  --jp-brand-color0: var(--md-blue-700);
+  --jp-brand-color1: var(--md-blue-500);
   --jp-brand-color2: var(--md-blue-300);
   --jp-brand-color3: var(--md-blue-100);
 
-  --jp-accent-color0: var(--solarized-green);
-  --jp-accent-color1: var(--solarized-green);
+  --jp-accent-color0: var(--md-green-700);
+  --jp-accent-color1: var(--md-green-500);
   --jp-accent-color2: var(--md-green-300);
   --jp-accent-color3: var(--md-green-100);
 
   /* State colors (warn, error, success, info) */
 
-  --jp-warn-color0: var(--solarized-orange);
-  --jp-warn-color1: var(--solarized-orange);
+  --jp-warn-color0: var(--md-orange-700);
+  --jp-warn-color1: var(--md-orange-500);
   --jp-warn-color2: var(--md-orange-300);
   --jp-warn-color3: var(--md-orange-100);
 
-  --jp-error-color0: var(--solarized-red);
-  --jp-error-color1: var(--solarized-red);
+  --jp-error-color0: var(--md-red-700);
+  --jp-error-color1: var(--md-red-500);
   --jp-error-color2: var(--md-red-300);
   --jp-error-color3: var(--md-red-100);
 
-  --jp-success-color0: var(--solarized-green);
-  --jp-success-color1: var(--solarized-green);
+  --jp-success-color0: var(--md-green-700);
+  --jp-success-color1: var(--md-green-500);
   --jp-success-color2: var(--md-green-300);
   --jp-success-color3: var(--md-green-100);
 
-  --jp-info-color0: var(--solarized-cyan);
-  --jp-info-color1: var(--solarized-cyan);
+  --jp-info-color0: var(--md-cyan-700);
+  --jp-info-color1: var(--md-cyan-500);
   --jp-info-color2: var(--md-cyan-300);
   --jp-info-color3: var(--md-cyan-100);
 

@@ -6,22 +6,23 @@ import {
 import { IThemeManager } from '@jupyterlab/apputils';
 
 /**
- * A plugin for jupyterlab_solarized_light
+ * Initialization data for the @eco32i/jupyterlab_solarized_light extension.
  */
-const plugin: JupyterFrontEndPlugin<void> = {
-  id: 'jupyterlab_solarized_light:plugin',
+const extension: JupyterFrontEndPlugin<void> = {
+  id: '@eco32i/jupyterlab_solarized_light',
   requires: [IThemeManager],
-  activate: function(app: JupyterFrontEnd, manager: IThemeManager) {
-    const style = 'jupyterlab_solarized_light/index.css';
+  autoStart: true,
+  activate: (app: JupyterFrontEnd, manager: IThemeManager) => {
+    console.log('JupyterLab extension @eco32i/jupyterlab_solarized_light is activated!');
+    const style = '@eco32i/jupyterlab_solarized_light/index.css';
 
     manager.register({
-      name: 'jupyterlab_solarized_light',
+      name: '@eco32i/jupyterlab_solarized_light',
       isLight: true,
       load: () => manager.loadCSS(style),
       unload: () => Promise.resolve(undefined)
     });
-  },
-  autoStart: true
+  }
 };
 
-export default plugin;
+export default extension;
