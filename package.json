@@ -1,56 +1,68 @@
 {
-  "name": "jupyterlab_solarized_light",
-  "version": "0.1.0",
-  "description": "Solarized Light Theme for Notebooks in JupyterLab",
-  "author": "Ilya Shamovsky <ilya.shamovsky@nyumc.org>",
+  "name": "@eco32i/jupyterlab_solarized_light",
+  "version": "0.3.0",
+  "description": "Solarized Light version of the default jupyterlab light theme",
   "keywords": [
     "jupyter",
     "jupyterlab",
-    "jupyterlab-extension",
-    "jupyterlab-theme"
+    "jupyterlab-extension"
   ],
+  "homepage": "https://github.com/eco32i/jupyterarized_light",
+  "bugs": {
+    "url": "https://github.com/eco32i/jupyterarized_light/issues"
+  },
   "license": "BSD-3-Clause",
+  "author": "Ilya Shamovsky",
   "files": [
-    "lib/*.d.ts",
-    "lib/*.js.map",
-    "lib/*.js",
-    "style/*"
+    "lib/**/*.{d.ts,eot,gif,html,jpg,js,js.map,json,png,svg,woff2,ttf}",
+    "style/**/*.{css,eot,gif,html,jpg,json,png,svg,woff2,ttf}"
   ],
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "directories": {
-    "lib": "lib/"
-  },
-  "scripts": {
-    "build": "tsc -b",
-    "build:webpack": "webpack",
-    "clean": "rimraf lib && rimraf static",
-    "prepare": "npm run clean && npm run build",
-    "watch": "tsc -w",
-    "watch:webpack": "webpack --watch"
-  },
-  "dependencies": {
-    "@jupyterlab/application": "^3.0.0",
-    "@jupyterlab/apputils": "^3.0.0"
-  },
-  "devDependencies": {
-    "rimraf": "~3.0.0",
-    "typedoc": "~0.20.0",
-    "typescript": "~4.1.3"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "jupyterlab": {
-    "extension": true,
-    "themePath": "style/index.css"
-  },
-  "homepage": "",
-  "bugs": {
-    "url": ""
-  },
+  "style": "style/index.css",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/eco32i/jupyterarized_light.git"
+  },
+  "scripts": {
+    "build": "jlpm run build:lib && jlpm run build:labextension:dev",
+    "build:prod": "jlpm run build:lib && jlpm run build:labextension",
+    "build:labextension": "jupyter labextension build .",
+    "build:labextension:dev": "jupyter labextension build --development True .",
+    "build:lib": "tsc",
+    "clean": "jlpm run clean:lib",
+    "clean:lib": "rimraf lib tsconfig.tsbuildinfo",
+    "clean:labextension": "rimraf jupyterlab_solarized_light/labextension",
+    "clean:all": "jlpm run clean:lib && jlpm run clean:labextension",
+    "eslint": "eslint . --ext .ts,.tsx --fix",
+    "eslint:check": "eslint . --ext .ts,.tsx",
+    "install:extension": "jupyter labextension develop --overwrite .",
+    "prepare": "jlpm run clean && jlpm run build:prod",
+    "watch": "run-p watch:src watch:labextension",
+    "watch:src": "tsc -w",
+    "watch:labextension": "jupyter labextension watch ."
+  },
+  "dependencies": {
+    "@jupyterlab/application": "^3.0.0"
+  },
+  "devDependencies": {
+    "@jupyterlab/builder": "^3.0.0",
+    "@typescript-eslint/eslint-plugin": "^2.27.0",
+    "@typescript-eslint/parser": "^2.27.0",
+    "eslint": "^7.5.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.19.0",
+    "rimraf": "^3.0.2",
+    "typescript": "~4.0.3"
+  },
+  "sideEffects": [
+    "style/*.css"
+  ],
+  "jupyterlab": {
+    "extension": true,
+    "themePath": "style/index.css",
+    "outputDir": "jupyterlab_solarized_light/labextension"
   }
 }

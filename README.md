@@ -1,30 +1,61 @@
-# Solarized Light Theme for Notebooks in JupyterLab
+# jupyterlab_solarized_light
 
-This theme provides solarized light styling only for notebooks.
-The JupyterLab UI remains untouched.
+![Github Actions Status](https://github.com/eco32i/jupyterarized_light/workflows/Build/badge.svg)
 
-## Prerequisites
+Solarized Light version of the default jupyterlab light theme
 
-* JupyterLab
 
-## Installation
+## Requirements
+
+* JupyterLab >= 3.0
+
+## Install
 
 ```bash
-jupyter labextension install jupyterlab_solarized_light
+pip install jupyterlab_solarized_light
 ```
 
-## Development
+## Contributing
 
-For a development install (requires npm version 4 or later), do the following in the repository directory:
+### Development install
+
+Note: You will need NodeJS to build the extension package.
+
+The `jlpm` command is JupyterLab's pinned version of
+[yarn](https://yarnpkg.com/) that is installed with JupyterLab. You may use
+`yarn` or `npm` in lieu of `jlpm` below.
 
 ```bash
-npm install
-jupyter labextension link .
+# Clone the repo to your local environment
+# Change directory to the jupyterlab_solarized_light directory
+# Install package in development mode
+pip install -e .
+# Link your development version of the extension with JupyterLab
+jupyter labextension develop . --overwrite
+# Rebuild extension Typescript source after making changes
+jlpm run build
 ```
 
-To rebuild the package and the JupyterLab app:
+You can watch the source directory and run JupyterLab at the same time in different terminals to watch for changes in the extension's source and automatically rebuild the extension.
 
 ```bash
-npm run build
-jupyter lab build
+# Watch the source directory in one terminal, automatically rebuilding when needed
+jlpm run watch
+# Run JupyterLab in another terminal
+jupyter lab
+```
+
+With the watch command running, every saved change will immediately be built locally and available in your running JupyterLab. Refresh JupyterLab to load the change in your browser (you may need to wait several seconds for the extension to be rebuilt).
+
+By default, the `jlpm run build` command generates the source maps for this extension to make it easier to debug using the browser dev tools. To also generate source maps for the JupyterLab core extensions, you can run the following command:
+
+```bash
+jupyter lab build --minimize=False
+```
+
+### Uninstall
+
+```bash
+pip uninstall jupyterlab_solarized_light
+jupyter labextension uninstall @eco32i/jupyterlab_solarized_light
 ```
