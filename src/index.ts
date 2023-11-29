@@ -8,10 +8,11 @@ import { IThemeManager } from '@jupyterlab/apputils';
 /**
  * Initialization data for the @eco32i/jupyterlab_solarized_light extension.
  */
-const extension: JupyterFrontEndPlugin<void> = {
-  id: '@eco32i/jupyterlab_solarized_light',
-  requires: [IThemeManager],
+const plugin: JupyterFrontEndPlugin<void> = {
+  id: '@eco32i/jupyterlab_solarized_light:plugin',
+  description: 'Solarized Light version of the default jupyterlab light theme',
   autoStart: true,
+  requires: [IThemeManager],
   activate: (app: JupyterFrontEnd, manager: IThemeManager) => {
     console.log('JupyterLab extension @eco32i/jupyterlab_solarized_light is activated!');
     const style = '@eco32i/jupyterlab_solarized_light/index.css';
@@ -25,4 +26,4 @@ const extension: JupyterFrontEndPlugin<void> = {
   }
 };
 
-export default extension;
+export default plugin;
